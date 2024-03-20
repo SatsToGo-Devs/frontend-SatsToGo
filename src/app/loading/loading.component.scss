@@ -1,0 +1,19 @@
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  .logo-image {
+    max-width: 20%;
+    max-height: 30vh;
+    margin-bottom: 2rem; // Space between the logo and the progress bar
+  }
+
+  mat-progress-bar {
+    width: 25%; // Adjust as per your design requirement
+    height: 20px; // Give some height to the progress bar
+    // You can add additional styling if needed
+  }
+}

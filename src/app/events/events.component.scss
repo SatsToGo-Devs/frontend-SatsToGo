@@ -1,0 +1,94 @@
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 80px 150px;
+  align-items: start; // Ensure cards align at the top
+
+  .event-card-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%; // Set to 100% of the container height
+
+    .event-card {
+      flex: 1; // Flex property to occupy the full height
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; // Distribute space between items
+      border-radius: 15px;
+      box-shadow: 0px 6px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      background-color: #FEF7FF;
+
+      .mat-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .mat-card-title {
+          font-weight: normal;
+        }
+
+        .category-icon {
+          // Styles for the category icon
+        }
+
+        .settings-button {
+          margin-left: auto; // Push the button to the far right
+        }
+      }
+
+      .event-image {
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .event-details {
+        padding: 16px;
+        flex-grow: 1; // Allow this section to grow to fill space
+
+        .event-title {
+          font-size: 1.25rem;
+          font-weight: normal;
+        }
+
+        .event-subtitle {
+          font-size: 1rem;
+          color: #666;
+          margin-top: 8px;
+        }
+
+        .event-description {
+          margin-top: 16px;
+        }
+      }
+
+      mat-card-actions {
+        display: flex;
+        justify-content: flex-end;
+        padding: 16px;
+        gap: 10px; // Adds gap between buttons
+        
+        .event-action {
+          border-radius: 20px;
+          border: none; // Remove border if you want
+          padding: 8px 16px; // Inner padding for buttons
+          flex: none; // Do not allow buttons to grow or shrink
+          border: 1px solid;
+          &.decline {
+            background-color: transparent; // Example decline button color
+            color: black;
+          }
+          &.accept {
+            background-color: #FF5C29; // Example accept button color
+            color: white;
+
+          }
+        }
+      }
+    }
+  }
+}
+.mat-mdc-icon-button.mat-mdc-button-base {
+  padding: 0px;
+}

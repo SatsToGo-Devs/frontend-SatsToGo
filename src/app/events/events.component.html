@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<div class="events-grid">
+    <div *ngFor="let event of events" class="event-card-container">
+      <mat-card class="event-card">
+        <mat-card-header>
+          <mat-icon class="category-icon">{{ event.categoryIcon }}</mat-icon>
+          <mat-card-title>{{ event.title }}</mat-card-title>
+          <button mat-icon-button class="settings-button" style="margin-left: auto;">
+            <mat-icon >more_vert</mat-icon> <!-- 3 vertical dots icon -->
+          </button>
+        </mat-card-header>
+        <img mat-card-image [src]="event.imageUrl" class="event-image">
+        <div class="event-details">
+          <div class="event-title">{{ event.title }}</div>
+          <div class="event-subtitle">Events</div>
+          <p class="event-description">{{ event.description }}</p>
+        </div>
+        <mat-card-actions>
+          <button mat-button class="event-action decline">Decline</button>
+          <button mat-button class="event-action accept">Accept</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  

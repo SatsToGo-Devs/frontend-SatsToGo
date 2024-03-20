@@ -1,0 +1,21 @@
+<app-header></app-header>
+
+<div class="authentication-container">
+    <div class="qr-section">
+        <!-- Add [width] binding to control the size -->
+        <qrcode [qrdata]="qrdata" [width]="qrsize"></qrcode>
+        <p class="code-number">{{ qrdata }}</p>
+      </div>
+    <div class="info-card">
+      <h2 class="title">Your QR Code</h2>
+
+      <p class="description">
+        Explore the realm of the Bitcoin positivity app, which encourages punctuality, by scanning the QR code provided above.
+      </p>
+      <div class="actions">
+        <button mat-button class="invite-btn">Invite</button>
+        <button mat-button class="accept-btn">Accept</button>
+      </div>
+    </div>
+  </div>
+  

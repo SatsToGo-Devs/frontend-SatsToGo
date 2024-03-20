@@ -1,0 +1,68 @@
+.authentication-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh; // Full height of the viewport
+  
+    .qr-section {
+      // Adjusted styles for the QR code container
+      text-align: center;
+      margin-bottom: 20px;
+  
+      // This targets the QR code element itself
+      qrcode {
+        max-width: 200px; // This sets the width of the QR code
+        max-height: 200px; // This sets the height of the QR code
+        margin: auto; // This centers the QR code if the container is larger
+      }
+      .code-number {
+        font-size: 1rem;
+        color: #333;
+        letter-spacing: 1px;
+      }
+    }
+  
+    .info-card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 80%; // Set to your desired width
+      max-width: 500px; // Maximum width of the card
+  
+      .title {
+        font-size: 1.5rem;
+        margin-bottom: 16px;
+      }
+  
+      .description {
+        font-size: 1rem;
+        margin-bottom: 24px;
+      }
+  
+      .actions {
+        display: flex;
+        justify-content: flex-end;
+  
+        .invite-btn,
+        .accept-btn {
+          border-radius: 20px;
+          padding: 8px 16px;
+          margin-left: 10px;
+          // Add more styling for the buttons
+        }
+  
+        .invite-btn {
+          // Styling for invite button
+        }
+  
+        .accept-btn {
+          background-color: #FF5C29; // Example color
+          color: white;
+          // Add any additional styling for accept button
+        }
+      }
+    }
+  }
+  
