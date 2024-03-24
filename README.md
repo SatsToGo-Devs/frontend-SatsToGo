@@ -1,3 +1,15 @@
+# SATS to GO! - MVP Overview
+
+SATS to GO!, a platform designed to reward punctuality with satoshis in the context of event attendance.
+Users can log in, engage with the event, and earn satoshis as a reward for early attendance.
+
+## Development Scope for MVP
+
+- **No Event CRUD Operations**: There is no need to create, read, update, or delete events for the MVP phase, simplifying the development process.
+- **Universal Event Eligibility**: All users are considered eligible to attend the featured event without any administrative requirements.
+- **LNURL-auth**: Users will log in using LNURL-auth for secure access.
+- **LNURL-withdraw**: Users will withdraw rewards via LNURL-withdraw, directly to their wallets.
+
 # LN Service Integration Guide
 
 This guide details the flows for LNURL-auth and LNURL-withdraw, enabling users to authenticate with their Lightning Network wallets and withdraw satoshis from our service.
@@ -61,7 +73,7 @@ This section describes the sequence of events for a user to withdraw satoshis us
 
 ### Sequence Diagram for Withdrawal
 
-![LNURL-withdraw Sequence Diagram](src/assets/sequence-diagrams/withdraw-sequence.png)
+![LNURL-withdraw Sequence Diagram](src/assets/sequence-diagrams/lnurl-withdraw.sequence.png)
 
 ### Flow Description
 
