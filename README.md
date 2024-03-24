@@ -94,13 +94,3 @@ This section describes the sequence of events for a user to withdraw satoshis us
 
 #### 11. LN Wallet Notifies User
 - The LN wallet notifies the user of the result of the withdrawal attempt.
-
-## Implementation Notes
-
-- Ensure the LN Node has enough liquidity for processing withdrawals.
-- Implement proper error handling for cases where the payment cannot be processed.
-- The backend should verify the `k1` token before processing the invoice to prevent fraudulent withdrawal attempts.
-
-## Further Development
-
-Future enhancements can include more detailed transaction history, improved error messaging for the user, and additional security features for withdrawal requests.
