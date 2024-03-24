@@ -1,27 +1,46 @@
-# SatsToGo
+# LNURL-auth Authentication Flow
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
+Authentication flow using LNURL-auth. This flow allows users to authenticate using their Lightning Network wallets.
 
-## Development server
+## Sequence Diagram for Authentication
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+![LNURL-auth Sequence Diagram](path-to-sequence-diagram-image.png)
 
-## Code scaffolding
+## Flow Description
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 1. User Requests to Log In
+- The user initiates the login process through the frontend interface.
 
-## Build
+### 2. Frontend Requests LNURL-auth URL
+- The frontend makes a GET request to the backend's `/auth` endpoint to retrieve the LNURL-auth URL.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 3. Backend Generates LNURL-auth URL
+- The backend generates a unique `k1` token.
+- It then creates an LNURL-auth URL containing this `k1` token.
 
-## Running unit tests
+### 4. Frontend Provides LNURL-auth URL
+- The backend sends the LNURL-auth URL to the frontend.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 5. Frontend Displays LNURL-auth QR Code
+- The frontend displays the LNURL-auth QR code to the user.
 
-## Running end-to-end tests
+### 6. User Initiates QR Scan
+- The user scans the QR code using their Lightning Network (LN) wallet application.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### 7. LN Wallet Sends Signed Message to Backend
+- The LN wallet signs the `k1` token with the user's private linking key.
+- It sends the signed message and `k1` token to the backend's `/auth/verify` endpoint.
 
-## Further help
+### 8. Backend Verifies the Signature
+- The backend verifies the signature against the `k1` token.
+- If the signature is valid, the backend authenticates the user.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### 9. Backend Sends Authentication Status to Frontend
+- The backend sends a response to the frontend indicating the authentication status.
+
+### 10. Frontend Notifies the User
+- The frontend notifies the user of the authentication result.
+
+## Next Steps
+
+After successful authentication, users will be able to proceed to the next step in the application flow, which will typically involve interacting with the LN wallet for transactions.
