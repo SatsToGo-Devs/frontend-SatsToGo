@@ -4,7 +4,7 @@ Authentication flow using LNURL-auth. This flow allows users to authenticate usi
 
 ## Sequence Diagram for Authentication
 
-![LNURL-auth Sequence Diagram](path-to-sequence-diagram-image.png)
+![LNURL-auth Sequence Diagram](src/assets/sequence-diagrams/auth-sequence.png)
 
 ## Flow Description
 
