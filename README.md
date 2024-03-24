@@ -73,7 +73,7 @@ This section describes the sequence of events for a user to withdraw satoshis us
 
 ### Sequence Diagram for Withdrawal
 
-![LNURL-withdraw Sequence Diagram](src/assets/sequence-diagrams/lnurl-withdraw.sequence.png)
+![LNURL-withdraw Sequence Diagram](src/assets/sequence-diagrams/lnurl-withdraw.sequence2.png)
 
 ### Flow Description
 
