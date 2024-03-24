@@ -5,6 +5,8 @@ This guide details the flows for LNURL-auth and LNURL-withdraw, enabling users t
 ## Table of Contents
 - [LNURL-auth Authentication Flow](#lnurl-auth-authentication-flow)
 - [LNURL-withdraw Flow](#lnurl-withdraw-flow)
+- [Backend API Endpoints](#backend-api-endpoints)
+- [LN Node Integration](#ln-node-integration)
 
 ---
 
@@ -95,5 +97,46 @@ This section describes the sequence of events for a user to withdraw satoshis us
 
 #### 11. LN Wallet Notifies User
 - The LN wallet notifies the user of the result of the withdrawal attempt.
+
+---
+
+
+## Backend API Endpoints
+
+Below are the required backend endpoints needed to support the LNURL-auth and LNURL-withdraw flows. Each endpoint should be implemented according to the provided specifications and should handle the requests and responses as per LNURL protocol standards.
+
+### LNURL-auth Endpoints
+
+#### /auth
+- **Method**: GET
+- **Description**: This endpoint is used to generate the LNURL-auth URL with a unique `k1` token. It should provide the frontend with the necessary data to display the LNURL-auth QR code to the user.
+
+#### /auth/verify
+- **Method**: GET
+- **Description**: This endpoint receives the `k1` token and the signed message from the LN wallet. It verifies the signature and authenticates the user session. A successful verification should return an authenticated status, while a failure should return an error.
+
+### LNURL-withdraw Endpoints
+
+#### /withdraw/request
+- **Method**: GET
+- **Description**: When invoked, this endpoint creates a new LNURL-withdraw request with a unique `k1` token and the withdrawal details. It responds with an LNURL-withdraw URL for the frontend to convert into a QR code.
+
+#### /withdraw/callback
+- **Method**: GET
+- **Description**: This endpoint handles the withdrawal attempt from the user's LN wallet. It expects the `k1` token and a Lightning invoice as parameters. After validating the `k1` token, it processes the invoice for payment through the LN node.
+
+### Note
+Refer to the [LNURL protocol specifications](https://github.com/fiatjaf/lnurl-rfc) for detailed information on request and response structures.
+
+## LN Node Integration
+
+The LN node is a crucial component that interacts with the backend to process payments. It should expose an API that the backend can use to:
+
+- Pay Lightning invoices received from the user's LN wallet.
+- Handle other LN transactions as required by the LNURL protocols.
+
+### Implementation Notes 
+- Securely generate and manage `k1` tokens, ensuring they are unique and single-use.
+
 
 ---
