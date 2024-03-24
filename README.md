@@ -10,7 +10,7 @@ Users can log in, engage with the event, and earn satoshis as a reward for early
 - **LNURL-auth**: Users will log in using LNURL-auth for secure access.
 - **LNURL-withdraw**: Users will withdraw rewards via LNURL-withdraw, directly to their wallets.
 
-# LN Service Integration Guide
+## LN Service Integration Guide
 
 This guide details the flows for LNURL-auth and LNURL-withdraw, enabling users to authenticate with their Lightning Network wallets and withdraw satoshis from our service.
 
