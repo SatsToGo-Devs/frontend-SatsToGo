@@ -9,15 +9,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
-import { RouterModule } from '@angular/router';
-
-interface Person {
-  imageUrl: string;
-  name: string;
-}
 
 @Component({
-  selector: 'app-event',
+  selector: 'app-event-reward',
   standalone: true,
   imports: [
     MatCardModule,
@@ -30,23 +24,15 @@ interface Person {
     MatButtonModule,
     MatIconModule,
     MatDatepickerModule,
-    MatNativeDateModule,
-    RouterModule
+    MatNativeDateModule
   ],
-  templateUrl: './event.component.html',
-  styleUrl: './event.component.css'
+  templateUrl: './event-reward.component.html',
+  styleUrl: './event-reward.component.css'
 })
-export class EventComponent {
-  public imagePath = '/assets/images/event-banner.png';
-  public invitedPeople: Person[] = [
-    // Populate this array with your invited people data
-    { imageUrl: '/assets/images/avatar.png', name: 'Alice' },
-    { imageUrl: '/assets/images/avatar.png', name: 'Bob' },
-    { imageUrl: '/assets/images/avatar.png', name: 'Charlie' },
-    { imageUrl: '/assets/images/avatar.png', name: 'Diana' },
-    { imageUrl: '/assets/images/avatar.png', name: 'Eve' },
-    { imageUrl: '/assets/images/avatar.png', name: 'Frank' },
-  ];
+export class EventRewardComponent {
+  public imagePath = '/assets/images/event-avatar.png';
+  currentTime = new Date(); // current time
+
 
   public event = {
     title: 'SATs to GO!',

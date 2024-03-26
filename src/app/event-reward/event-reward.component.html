@@ -1,0 +1,49 @@
+<app-header></app-header>
+
+<div class="event-container">
+  <div class="event-image-container">
+    <img src="{{ imagePath }}" alt="Event" class="event-image">
+  </div>
+  <div class="event-card-container">
+    <mat-card class="event-card">
+      <mat-form-field appearance="fill" class="event-title">
+        <mat-label>Event Title</mat-label>
+        <input matInput placeholder="Event Title" [value]="event.title" disabled>
+      </mat-form-field>
+
+      <div class="event-date-time">
+        <mat-form-field appearance="fill" class="event-date">
+          <mat-label>Date</mat-label>
+          <input matInput [matDatepicker]="picker" placeholder="Date" [value]="formattedDate" disabled>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill" class="event-time">
+          <mat-label>Time</mat-label>
+          <input matInput placeholder="Time" [value]="event.time" disabled>
+          <mat-icon matSuffix>access_time</mat-icon>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="fill" class="user-id">
+        <mat-label>User ID</mat-label>
+        <input matInput placeholder="User ID" value="4314hb2314" disabled>
+        <mat-icon matSuffix>account_circle</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="arrival-time">
+        <mat-label>Arrival Time</mat-label>
+        <input matInput placeholder="Arrival Time" value="{{ currentTime | date:'shortTime' }}" disabled>
+        <mat-icon matSuffix>access_time</mat-icon>
+      </mat-form-field>
+
+      <p class="success-message">Well done. You came in early</p>
+
+      <button mat-raised-button color="warn" class="continue-button">
+        <mat-icon>check</mat-icon>
+        Continue
+      </button>
+    </mat-card>
+  </div>
+</div>
