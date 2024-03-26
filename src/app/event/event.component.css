@@ -1,0 +1,116 @@
+/* Add this CSS to your styles or component CSS file */
+
+
+.event-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.event-image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-image {
+    max-width: 50%;
+    height: auto;
+}
+
+.event-card-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px;
+}
+
+.mat-form-field.event-title,
+.mat-form-field.event-date,
+.mat-form-field.event-time,
+.mat-form-field.event-additional-info {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.event-date-time {
+    display: flex;
+    justify-content: space-between;
+}
+
+.people-icons {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0px;
+}
+
+.person-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.continue-button {
+    width: 60%;
+    margin-top: 30px !important;
+    background-color: #FFA500;
+    margin: auto;
+    border-radius: 40px;
+}
+
+/* Angular Material Specific Overrides */
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-infix {
+    border-top: 0;
+}
+
+::ng-deep .mat-form-field .mat-form-field-wrapper {
+    padding-bottom: 0;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: #00BCD4;
+    /* Ciel blue color for the form field ripple effect */
+}
+
+::ng-deep .mat-icon-button {
+    color: #00BCD4;
+    /* Ciel blue color for icons */
+}
+
+
+.event-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* This will center the card horizontally */
+    justify-content: center;
+    padding: 16px;
+}
+
+.event-card {
+    max-width: 70%;
+    /* Adjust this value to your liking */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    /* This ensures the card takes up to 100% of the .event-card-container width */
+}
+
+input,
+textarea {
+    font-weight: 400 !important;
+    color: black !important;
+}
+
+.event-title {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: black !important;
+}
+:host ::ng-deep .mdc-text-field--filled.mdc-text-field--disabled {
+    background-color: unset
+}

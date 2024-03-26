@@ -4,6 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-events',
@@ -14,6 +15,7 @@ import { HeaderComponent } from '../header/header.component';
     MatIconModule,
     CommonModule,
     HeaderComponent,
+    RouterModule,
 
   ],
   templateUrl: './events.component.html',
