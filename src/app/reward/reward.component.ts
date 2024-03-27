@@ -45,14 +45,9 @@ export class RewardComponent {
 
   callApi() {
     const params = {
-      title: 'Your Title',
-      min_withdrawable: '10',
-      max_withdrawable: '20',
-      is_unique: 'true',
-      uses: '1',
-      wait_time: '1',
-      webhook_url: 'Your Webhook URL',
-      'X-Api-Key': 'Your Admin Key'
+      title: 'Reward',
+      min_withdrawable: '11',
+      max_withdrawable: '11',
     };
 
     this.satstogoService.generateLnurl(params).subscribe({
@@ -88,6 +83,7 @@ export class RewardComponent {
       error: (error) => console.error(error)
     });
   }
+
 
   claimRewards() {
     // Implement the logic for claiming rewards here

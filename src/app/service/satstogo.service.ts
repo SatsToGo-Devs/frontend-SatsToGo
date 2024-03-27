@@ -7,6 +7,7 @@ import { HttpClientModule, HttpClient, HttpParams } from '@angular/common/http';
 })
 export class SatstogoService {
     private apiUrl = 'https://backend-satstogo-production.up.railway.app/api/withdraw';
+    private authUrl = 'https://backend-satstogo-production.up.railway.app/api/auth';
 
     constructor(private http: HttpClient) {}
   
@@ -18,5 +19,9 @@ export class SatstogoService {
       });
   
       return this.http.get(this.apiUrl, { params: httpParams });
+    }
+
+    generateAuth(): Observable<any> {
+      return this.http.get(this.authUrl);
     }
 }
