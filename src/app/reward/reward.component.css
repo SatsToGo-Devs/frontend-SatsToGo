@@ -1,0 +1,88 @@
+
+  .satoshi-banner {
+    margin-bottom: 2rem;
+  }
+  
+  .satoshi-count {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .satoshi-number {
+    font-size: 6rem;
+    color: #007BFF;
+    font-weight: bold;
+  }
+  
+  .satoshi-label {
+    font-size: 1.5rem;
+    color: #333;
+    margin-left: 0.5rem;
+  }
+  
+  .satoshi-message {
+    color: #555;
+    font-size: 1rem;
+    margin: 0;
+  }
+  
+  .claim-button {
+    background-color: #FFA500;
+    color: white;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .claim-button mat-icon {
+    font-size: 24px;
+  }
+  
+  .claim-button:hover {
+    background-color: #e69500;
+  }
+  
+
+  .rewards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 2rem auto;
+    text-align: center;
+  }
+  
+  /* ... other styles ... */
+  
+  .qr-code-container {
+    margin: 2rem 0;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .qr-code-container:hover {
+    transform: scale(1.05); /* Slightly enlarge the QR code on hover for emphasis */
+  }
+  
+  .qr-code {
+    max-width: 200px; /* Adjust size as needed */
+    height: auto;
+    border: 2px solid #007BFF; /* Highlight QR code with a border */
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  /* ... other styles ... */
+  
+  /* Remove the button styles since the button will no longer be used */
+  

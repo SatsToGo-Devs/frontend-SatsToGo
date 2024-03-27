@@ -1,1 +1,36 @@
-<p>reward works!</p>
+<app-header></app-header>
+<!-- <div class="rewards-container">
+  <div class="satoshi-banner">
+    <div class="satoshi-count">
+      <span class="satoshi-number">1000</span>
+      <span class="satoshi-label">SATS</span>
+    </div>
+    <p class="satoshi-message">You've been rewarded for your punctuality. Claim now and enjoy!</p>
+  </div>
+  <div class="qr-code-container">
+    <qrcode [qrdata]="qrdata" [width]="qrsize"></qrcode>
+
+  </div>
+  <button mat-raised-button class="claim-button" (click)="claimRewards()">
+    <mat-icon>card_giftcard</mat-icon>
+    Claim Your SATS
+  </button>
+</div> -->
+
+
+<div class="rewards-container">
+  <div class="satoshi-banner">
+    <div class="satoshi-count">
+      <span class="satoshi-number">1000</span>
+      <span class="satoshi-label">SATS</span>
+    </div>
+    <p class="satoshi-message">Scan the QR code to claim your punctuality reward.</p>
+  </div>
+  <div class="qr-code-container">
+    <qrcode [qrdata]="qrdata" [width]="qrsize"></qrcode>
+    <p class="code-number">{{ displayedData }}</p>
+
+
+    <!-- <img src="path-to-your-qr-code.png" alt="QR Code" class="qr-code" (click)="handleQrCodeScan()"> -->
+  </div>
+</div>
