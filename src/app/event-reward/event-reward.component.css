@@ -137,3 +137,16 @@ font-size: large;
   margin: 16px 0;
   color: #007BFF; /* Adjust the color as needed */
 }
+
+.error-message {
+    font-size: large;
+    font-style: italic;
+    text-align: center;
+    margin: 16px 0;
+    color: #f44336;
+    /* Adjust the color as needed */
+}
+
+.no-reward {
+    opacity: 40%;
+}

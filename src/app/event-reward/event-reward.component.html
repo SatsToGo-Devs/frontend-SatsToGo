@@ -44,9 +44,17 @@
         <mat-icon matSuffix>access_time</mat-icon>
       </mat-form-field>
 
-      <p class="success-message">🎉 Well done. You came in early (before {{event.time}})</p>
+      <!-- <p class="success-message">🎉 Well done. You came in early (before {{event.time}})</p> -->
+      <!-- display when the user comes early -->
+      
+      <p class="success-message" *ngIf="isRewarded">🎉 Well done. You came in early (before {{event.time}})
+      </p>
+      
+      <!-- display when the user doesn't come early -->
+      <p class="error-message" *ngIf="!isRewarded">😢 Sorry, you didn't come in early. You came in after {{event.time}}</p>
 
-      <button mat-raised-button style="background-color:#007BFF; color: white;" class="continue-button" (click)="claimSats(event)">
+
+      <button mat-raised-button style="background-color:#007BFF; color: white;" class="continue-button" [class.no-reward]="!isRewarded" (click)="claimSats(event)" [disabled]="!isRewarded">
         <!-- <mat-icon>check</mat-icon> -->
         Claim Sats
       </button>

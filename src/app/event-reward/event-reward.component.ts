@@ -36,15 +36,33 @@ export class EventRewardComponent {
   public imagePath = '/assets/images/event-avatar.png';
   currentTime = new Date(); // current time
   event!: Event;
+  isRewarded: boolean = false
+
+  // constructor(private router: Router, private route: ActivatedRoute) {
+  //   const navigation = this.router.getCurrentNavigation();
+  //   if (navigation?.extras.state) {
+  //     this.event = navigation.extras.state['event'];
+  //     this.isRewarded = 
+  //   }
+  // }
 
   constructor(private router: Router, private route: ActivatedRoute) {
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras.state) {
       this.event = navigation.extras.state['event'];
+  
+      const eventTime = new Date();
+      const [hours, minutes] = this.event.time.split(':').map(Number);
+      eventTime.setHours(hours, minutes);
+  
+      const currentTime = new Date();
+  
+      // checks if the currentTime is before the eventTime
+      this.isRewarded = currentTime < eventTime;
     }
   }
 
-
+  
 
   claimSats(event: Event){
     this.router.navigate(['/reward', event.id], {
