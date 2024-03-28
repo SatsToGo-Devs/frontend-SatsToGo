@@ -19,7 +19,7 @@ export class LoadingComponent {
       this.progressValue += 100 / (5000 / 50); // Increment the progress value over 5 seconds
       if (this.progressValue >= 100) {
         clearInterval(interval);
-        this.router.navigate(['/events']); // Navigate to '/events' when progress is complete
+        this.router.navigate(['/authenticate']); // Navigate to '/events' when progress is complete
       }
     }, 30);
   }

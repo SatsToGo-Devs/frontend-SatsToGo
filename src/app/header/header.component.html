@@ -1,22 +1,29 @@
 <header class="app-header">
-    <img src="/assets/images/logo.png" alt="Logo" class="header-btn logo" routerLink="/loading">
-    <nav class="nav-buttons">
-      <!-- Use the routerLink directive to navigate to '/events' -->
-      <button mat-flat-button color="primary" class="header-btn" routerLink="/events">
-        <mat-icon>home</mat-icon> Home
-      </button>
-      <!-- This also navigates to '/events' -->
-      <button mat-flat-button color="primary" class="header-btn" routerLink="/events">
-        <mat-icon>event</mat-icon> Events
-      </button>
-      <button mat-flat-button color="primary" class="header-btn">
-        <mat-icon>admin_panel_settings</mat-icon> Admin
-      </button>
-      <button mat-flat-button color="primary" class="header-btn">
-        <mat-icon>card_giftcard</mat-icon> Rewards
-      </button>
-    </nav>
-    <button mat-stroked-button color="primary" class="login-btn" routerLink="/authenticate">
-      <mat-icon>login</mat-icon> Login / Sign Up
+  <img src="/assets/images/logo.png" alt="Logo" class="header-btn logo" routerLink="/loading">
+  <nav class="nav-buttons">
+    <button mat-flat-button color="primary" class="header-btn" routerLink="/events">
+      <mat-icon>home</mat-icon> Home
     </button>
+    <button mat-flat-button color="primary" class="header-btn" routerLink="/events">
+      <mat-icon>event</mat-icon> Events
+    </button>
+    <!-- Conditional rendering based on authentication state -->
+    <button *ngIf="authService.isAuthenticated()" mat-flat-button color="primary" class="header-btn">
+      <mat-icon>admin_panel_settings</mat-icon> Admin
+    </button>
+    <button *ngIf="authService.isAuthenticated()" mat-flat-button color="primary" class="header-btn">
+      <mat-icon>card_giftcard</mat-icon> Rewards
+    </button>
+  </nav>
+  <!-- Show this button only if the user is not authenticated -->
+  <button *ngIf="!authService.isAuthenticated()" mat-stroked-button color="primary" class="login-btn" routerLink="/authenticate">
+    <mat-icon>login</mat-icon> Login / Sign Up
+  </button>
+  <!-- Display user info and logout button if authenticated -->
+  <div *ngIf="authService.isAuthenticated()" class="user-info">
+    <span>Welcome!</span>
+    <button mat-button (click)="logout()" class="logout-btn">
+      <mat-icon>logout</mat-icon> Logout
+    </button>
+  </div>
 </header>

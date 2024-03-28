@@ -5,13 +5,14 @@ import { LoadingComponent } from './loading/loading.component';
 import { EventComponent } from './event/event.component';
 import { EventRewardComponent } from './event-reward/event-reward.component';
 import { RewardComponent } from './reward/reward.component';
+import { AuthGuard } from './auth.guard';
 
-export const routes: Routes = [
+  export const routes: Routes = [
     { path: 'loading', component: LoadingComponent },
     { path: 'authenticate', component: AuthenticateComponent },
     { path: 'events', component: EventsComponent },
-    { path: 'event', component: EventComponent },
-    { path: 'event-reward', component: EventRewardComponent },
-    { path: 'reward', component: RewardComponent },
+    { path: 'event', component: EventComponent, canActivate: [AuthGuard] },
+    { path: 'event-reward', component: EventRewardComponent, canActivate: [AuthGuard] },
+    { path: 'reward', component: RewardComponent, canActivate: [AuthGuard] },
     { path: '', redirectTo: '/loading', pathMatch: 'full' }
   ];

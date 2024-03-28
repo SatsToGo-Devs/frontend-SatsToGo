@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
@@ -9,10 +9,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { SatstogoService } from '../service/satstogo.service';
 import { QRCodeModule } from 'angularx-qrcode';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { WebsocketService } from '../service/websocket.service';
 
 @Component({
   selector: 'app-reward',
@@ -37,17 +38,31 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
   templateUrl: './reward.component.html',
   styleUrl: './reward.component.css'
 })
-export class RewardComponent {
+export class RewardComponent implements OnInit{
 
-  constructor(private satstogoService: SatstogoService) {
+  constructor(private satstogoService: SatstogoService,  private websocketService: WebsocketService, private router: Router) {
     this.callApi()
+  }
+  ngOnInit(): void {
+    this.websocketService.messages$.subscribe({
+      next: (message) => {
+        debugger
+        console.log('WebSocket message:', message);
+        if (message.type === 'payment_status' && message.status === 'OK') {
+          console.log(message.message); // "Verification Successful"
+          this.router.navigate(['/events']);
+          // You might want to navigate to another page or show a success message
+        }
+      },
+      error: (error) => console.error('WebSocket error:', error),
+    });
   }
 
   callApi() {
     const params = {
       title: 'Reward',
-      min_withdrawable: '11',
-      max_withdrawable: '11',
+      min_withdrawable: '2',
+      max_withdrawable: '2',
     };
 
     this.satstogoService.generateLnurl(params).subscribe({

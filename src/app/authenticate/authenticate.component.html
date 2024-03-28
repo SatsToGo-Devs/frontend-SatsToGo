@@ -1,9 +1,12 @@
 <app-header></app-header>
+<!-- <div *ngIf="isAuthenticated; else showQRCode">
+  <p>Authentication Successful!</p>
+</div> -->
 
 <div class="authentication-container">
     <div class="qr-section">
         <!-- Add [width] binding to control the size -->
-        <qrcode [qrdata]="qrCode" [width]="qrsize"></qrcode>
+        <qrcode [qrdata]="qrCode" [allowEmptyString]="true"></qrcode>
         <p class="code-number">{{ displayedData }}</p>
       </div>
     <div class="info-card">
@@ -19,3 +22,4 @@
     </div>
   </div>
   
+
