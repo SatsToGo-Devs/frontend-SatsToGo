@@ -35,8 +35,6 @@ import { Event } from '../events/events.component';
 export class EventRewardComponent {
   public imagePath = '/assets/images/event-avatar.png';
   currentTime = new Date(); // current time
-  public formattedDate: string = "";
-
   event!: Event;
 
   constructor(private router: Router, private route: ActivatedRoute) {
@@ -46,17 +44,6 @@ export class EventRewardComponent {
     }
   }
 
-
-  ngOnInit(): void {
-    // Initialization logic if necessary
-    this.formattedDate = this.formatDate(this.event.date);
-
-  }
-
-  private formatDate(date: Date): string {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-  }
 
 
   claimSats(event: Event){

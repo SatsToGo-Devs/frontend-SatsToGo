@@ -14,7 +14,7 @@
       <div class="event-date-time">
         <mat-form-field appearance="fill" class="event-date">
           <mat-label>Date</mat-label>
-          <input matInput [matDatepicker]="picker" placeholder="Date" [value]="formattedDate" disabled>
+          <input matInput [matDatepicker]="picker" placeholder="Date" [value]="event.date" disabled>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>

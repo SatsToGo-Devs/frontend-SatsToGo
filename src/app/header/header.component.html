@@ -8,10 +8,10 @@
       <mat-icon>event</mat-icon> Events
     </button>
     <!-- Conditional rendering based on authentication state -->
-    <button *ngIf="authService.isAuthenticated()" mat-flat-button color="primary" class="header-btn">
+    <button *ngIf="authService.isAuthenticated()" mat-flat-button color="primary" class="header-btn disable" disabled>
       <mat-icon>admin_panel_settings</mat-icon> Admin
     </button>
-    <button *ngIf="authService.isAuthenticated()" mat-flat-button color="primary" class="header-btn">
+    <button *ngIf="authService.isAuthenticated()" mat-flat-button color="primary" class="header-btn disable">
       <mat-icon>card_giftcard</mat-icon> Rewards
     </button>
   </nav>
@@ -21,7 +21,7 @@
   </button>
   <!-- Display user info and logout button if authenticated -->
   <div *ngIf="authService.isAuthenticated()" class="user-info">
-    <span>Welcome!</span>
+    <span style="color: #ff5c29;;">Welcome!</span>
     <button mat-button (click)="logout()" class="logout-btn">
       <mat-icon>logout</mat-icon> Logout
     </button>

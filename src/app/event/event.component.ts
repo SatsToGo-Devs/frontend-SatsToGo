@@ -57,26 +57,6 @@ export class EventComponent {
     { imageUrl: '/assets/images/avatar.png', name: 'Frank' },
   ];
 
-  // public event = {
-  //   title: 'SATs to GO!',
-  //   date: new Date('2023-11-23T08:00:00'), // Date object representing Nov 23, 2023
-  //   time: '08:00 AM',
-  //   additionalInfo: 'SATS to GO! emerges as a trailblazing force in the realm of Bitcoin products, offering an innovative solution that seamlessly integrates with the fast-paced world of digital currencies.'
-  // };
-  public formattedDate: string = "";
-
-
-  ngOnInit(): void {
-    // Initialization logic if necessary
-    this.formattedDate = this.formatDate(this.event.date);
-
-  }
-
-  private formatDate(date: Date): string {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-  }
-
   goEventReward(event: Event) {
     this.router.navigate(['/event-reward', event.id], {
       state: { event: event }

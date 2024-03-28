@@ -25,6 +25,10 @@
         mat-icon {
           margin-right: 5px;
         }
+
+        &.disable {
+          opacity: 40% !important;
+        }
       }
     }
   
