@@ -14,6 +14,7 @@ import { SatstogoService } from '../service/satstogo.service';
 import { QRCodeModule } from 'angularx-qrcode';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { WebsocketService } from '../service/websocket.service';
+import { Event } from '../events/events.component';
 
 @Component({
   selector: 'app-reward',
@@ -39,8 +40,14 @@ import { WebsocketService } from '../service/websocket.service';
   styleUrl: './reward.component.css'
 })
 export class RewardComponent implements OnInit{
+  event!: Event;
+  displayedData: string='';
 
   constructor(private satstogoService: SatstogoService,  private websocketService: WebsocketService, private router: Router) {
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation?.extras.state) {
+      this.event = navigation.extras.state['event'];
+    }
     this.callApi()
   }
   ngOnInit(): void {
@@ -60,36 +67,13 @@ export class RewardComponent implements OnInit{
 
   callApi() {
     const params = {
-      title: 'Reward',
-      min_withdrawable: '2',
-      max_withdrawable: '2',
+      title: " 🎉 " + this.event.title + " Reward",
+      min_withdrawable: this.event.reward,
+      max_withdrawable: this.event.reward,
     };
 
     this.satstogoService.generateLnurl(params).subscribe({
       next: (response) => {
-        debugger; // This will pause execution here when the developer tools are open.
-        // example of type of response 
-        //   {
-        //     "id": "A3yV8wQZho6ACDY535DHr8",
-        //     "wallet": "7b82a8eef0d84146b35552a1742cb157",
-        //     "title": "Test1",
-        //     "min_withdrawable": 10,
-        //     "max_withdrawable": 20,
-        //     "uses": 1,
-        //     "wait_time": 1,
-        //     "is_unique": true,
-        //     "unique_hash": "8AnEu39thcUTvicSGF7yWK",
-        //     "k1": "6pwqe8FLomGAcAGqLTkKUi",
-        //     "open_time": 1711497523,
-        //     "used": 0,
-        //     "usescsv": "0",
-        //     "number": 0,
-        //     "webhook_url": null,
-        //     "webhook_headers": null,
-        //     "webhook_body": null,
-        //     "custom_url": null,
-        //     "lnurl": "LNURL1DP68GURN8GHJ7MR9VAJKUEPWD3HXY6T5WVHXXMMD9AMKJARGV3EXZAE0V9CXJTMKXYHKCMN4WFKZ7WZPDEZH2VEEW35XX425WE5KX568GCMHJ46T9AG85WZX23HNJ7Z9TYERYEN9GEH8G6ZC2F8XYMXD8NH"
-        // }
         this.qrdata = response.lnurl.lnurl
         this.displayedData = this.truncateData(this.qrdata);
 
@@ -113,7 +97,6 @@ export class RewardComponent implements OnInit{
     // Logic to handle the closing of the early bird message
   }
 
-  displayedData: string='';
 
 
 

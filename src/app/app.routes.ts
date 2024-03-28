@@ -11,8 +11,8 @@ import { AuthGuard } from './auth.guard';
     { path: 'loading', component: LoadingComponent },
     { path: 'authenticate', component: AuthenticateComponent },
     { path: 'events', component: EventsComponent },
-    { path: 'event', component: EventComponent, canActivate: [AuthGuard] },
-    { path: 'event-reward', component: EventRewardComponent, canActivate: [AuthGuard] },
-    { path: 'reward', component: RewardComponent, canActivate: [AuthGuard] },
+    { path: 'event/:id', component: EventComponent, canActivate: [AuthGuard] },
+    { path: 'event-reward/:id', component: EventRewardComponent, canActivate: [AuthGuard] },
+    { path: 'reward/:id', component: RewardComponent, canActivate: [AuthGuard] },
     { path: '', redirectTo: '/loading', pathMatch: 'full' }
   ];

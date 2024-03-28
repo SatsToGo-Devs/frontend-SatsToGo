@@ -131,8 +131,9 @@ textarea {
 }
 
 .success-message {
+font-size: large;
   font-style: italic;
   text-align: center;
   margin: 16px 0;
-  color: green; /* Adjust the color as needed */
+  color: #007BFF; /* Adjust the color as needed */
 }

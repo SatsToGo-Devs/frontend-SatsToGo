@@ -32,17 +32,23 @@
         <mat-icon matSuffix>account_circle</mat-icon>
       </mat-form-field>
 
+      <mat-form-field appearance="fill" class="user-id">
+        <mat-label>Reward Amount</mat-label>
+        <input matInput placeholder="Reward Amount" [value]="event.reward + ' SATS'" disabled>
+        <mat-icon matSuffix>account_circle</mat-icon>
+      </mat-form-field>
+
       <mat-form-field appearance="fill" class="arrival-time">
         <mat-label>Arrival Time</mat-label>
         <input matInput placeholder="Arrival Time" value="{{ currentTime | date:'shortTime' }}" disabled>
         <mat-icon matSuffix>access_time</mat-icon>
       </mat-form-field>
 
-      <p class="success-message">Well done. You came in early</p>
+      <p class="success-message">🎉 Well done. You came in early (before {{event.time}})</p>
 
-      <button mat-raised-button color="warn" class="continue-button" routerLink="/reward">
-        <mat-icon>check</mat-icon>
-        Continue
+      <button mat-raised-button style="background-color:#007BFF; color: white;" class="continue-button" (click)="claimSats(event)">
+        <!-- <mat-icon>check</mat-icon> -->
+        Claim Sats
       </button>
     </mat-card>
   </div>

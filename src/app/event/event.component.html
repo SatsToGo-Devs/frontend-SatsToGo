@@ -29,7 +29,7 @@
 
       <mat-form-field appearance="fill" class="event-additional-info">
         <mat-label>Additional Information</mat-label>
-        <textarea matInput placeholder="Additional Information" value="{{ event.additionalInfo }}" disabled></textarea>
+        <textarea matInput placeholder="Additional Information" value="{{ event.description }}" disabled></textarea>
       </mat-form-field>
 
       <div class="event-invited-people">
@@ -40,7 +40,7 @@
         </div>
       </div>
 
-      <button mat-raised-button color="warn" class="continue-button" routerLink="/event-reward">
+      <button mat-raised-button color="warn" class="continue-button"  (click)="goEventReward(event)">
         <mat-icon>check</mat-icon>
         Continue
       </button>

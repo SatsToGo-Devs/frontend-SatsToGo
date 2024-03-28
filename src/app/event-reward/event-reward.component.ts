@@ -9,7 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { Event } from '../events/events.component';
 
 @Component({
   selector: 'app-event-reward',
@@ -34,20 +35,17 @@ import { RouterModule } from '@angular/router';
 export class EventRewardComponent {
   public imagePath = '/assets/images/event-avatar.png';
   currentTime = new Date(); // current time
-
-
-  public event = {
-    title: 'SATs to GO!',
-    date: new Date('2023-11-23T08:00:00'), // Date object representing Nov 23, 2023
-    time: '08:00 AM',
-    additionalInfo: 'SATS to GO! emerges as a trailblazing force in the realm of Bitcoin products, offering an innovative solution that seamlessly integrates with the fast-paced world of digital currencies.'
-  };
   public formattedDate: string = "";
 
+  event!: Event;
 
-  constructor() { 
-
+  constructor(private router: Router, private route: ActivatedRoute) {
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation?.extras.state) {
+      this.event = navigation.extras.state['event'];
+    }
   }
+
 
   ngOnInit(): void {
     // Initialization logic if necessary
@@ -58,5 +56,13 @@ export class EventRewardComponent {
   private formatDate(date: Date): string {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  }
+
+
+  claimSats(event: Event){
+    this.router.navigate(['/reward', event.id], {
+      state: { event: event }
+    });
+
   }
 }
